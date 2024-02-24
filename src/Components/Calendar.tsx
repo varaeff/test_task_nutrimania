@@ -56,7 +56,6 @@ function InnerCalendar({
     const firstDay: number = new Date(year, month, 1).getDay();
 
     let maxDays: number = daysInMonth[month];
-
     //корректировка для високосного года
     if (
       month === 1 &&
@@ -121,10 +120,12 @@ function InnerCalendar({
             ].join(" ")}
             style={{ textDecorationColor: nutritionsLog[dayKey] }}
             onClick={() =>
-              !disableSelector ? changeCurrentDay(Number(item)) : {}
+              !disableSelector && typeof item === "number"
+                ? changeCurrentDay(Number(item))
+                : {}
             }
           >
-            {typeof item === "number" && item !== -1 && item}
+            {item !== -1 && item}
           </div>
         );
       }
