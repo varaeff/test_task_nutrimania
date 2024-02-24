@@ -1,0 +1,57 @@
+.mainBlock {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  background-color: #fff;
+  color: #70727d;
+  width: 100vw;
+  min-width: 260px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 10px;
+  -webkit-box-shadow: 4px 2px 2px gray;
+  box-shadow: 4px 2px 2px gray;
+  margin-bottom: 1rem;
+  padding: 0.8rem;
+  text-align: center;
+  overflow: hidden;
+  -webkit-transition: -webkit-transform 0.5s linear;
+  transition: -webkit-transform 0.5s linear;
+  -o-transition: transform 0.5s linear;
+  transition: transform 0.5s linear;
+  transition: transform 0.5s linear, -webkit-transform 0.5s linear;
+}
+
+.arrowButton {
+  background-color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.commit {
+  background-color: #19c152;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  width: 100%;
+  height: 3.3rem;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.arrowButton:hover,
+.commit:hover {
+  -webkit-box-shadow: 1px 1px 2px #919191;
+  box-shadow: 1px 1px 2px #919191;
+}
+
+.arrowButton:active,
+.commit:active {
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+.arrowButton:disabled {
+  visibility: hidden;
+}

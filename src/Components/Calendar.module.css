@@ -1,0 +1,90 @@
+.calendarBlock {
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+  margin-top: auto;
+  margin-bottom: 0;
+  z-index: 2;
+}
+
+.hide {
+  -webkit-transform: translateY(100%);
+  -ms-transform: translateY(100%);
+  transform: translateY(100%);
+}
+
+.show {
+  -webkit-transform: translateY(0);
+  -ms-transform: translateY(0);
+  transform: translateY(0);
+}
+
+.header {
+  text-align: left;
+  margin: 0;
+}
+
+.month {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  font-weight: bold;
+  padding-top: 1rem;
+}
+
+.row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  padding: 5px;
+}
+
+.rowItem {
+  font-size: 1rem;
+  width: 2rem;
+  padding: 6px;
+  cursor: pointer;
+}
+
+.dayRow {
+  color: #8d9199;
+  text-decoration: none;
+  cursor: default;
+}
+
+.calendarDate {
+  padding: 4px;
+  border: solid #4fa46b;
+  border-radius: 25%;
+}
+
+.underline {
+  -webkit-text-decoration: underline 3px;
+  text-decoration: underline 3px;
+  text-underline-offset: 3px;
+  -webkit-text-decoration-color: #919191;
+  text-decoration-color: #919191;
+}
+
+@media (max-width: 400px) {
+  .header {
+    font-size: 1rem;
+  }
+
+  .month {
+    padding-top: 0.5rem;
+  }
+
+  .row {
+    padding: 1px;
+  }
+
+  .rowItem {
+    width: 1rem;
+  }
+}

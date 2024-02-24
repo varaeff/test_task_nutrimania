@@ -1,0 +1,14 @@
+.nutritionEl {
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+.nutritionEl:hover {
+  text-shadow: 1px 1px 1px lightgrey;
+}
+
+.nutritionElSelected {
+  font-size: 2rem;
+  cursor: default;
+  margin-bottom: 2rem;
+}
