@@ -106,8 +106,8 @@ function InnerCalendar({
     setCalendarDate(new Date(newDate));
   }
 
-  function hideCalendar(): void {
-    setActiveDate(calendarDate);
+  function hideCalendar(changeDate: boolean): void {
+    changeDate && setActiveDate(calendarDate);
     setShowCalendar(false);
     setShowModal(false);
   }
@@ -158,6 +158,10 @@ function InnerCalendar({
         showCalendar ? styles.show : styles.hide,
       ].join(" ")}
     >
+      <button
+        className={styles.cancel}
+        onClick={() => hideCalendar(false)}
+      ></button>
       <h2 className={styles.header}>Календарь</h2>
       <div className={styles.month}>
         <button
@@ -178,7 +182,10 @@ function InnerCalendar({
         </button>
       </div>
       {rows}
-      <button className={stylesSeveral.commit} onClick={hideCalendar}>
+      <button
+        className={stylesSeveral.commit}
+        onClick={() => hideCalendar(true)}
+      >
         Выбрать
       </button>
     </div>
