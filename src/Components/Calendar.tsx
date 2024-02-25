@@ -174,6 +174,7 @@ function InnerCalendar({
         {currentDate.getFullYear() !== calendarDate.getFullYear() &&
           calendarDate.getFullYear()}
         <button
+          data-testid="calendarRightArrow"
           className={stylesSeveral.arrowButton}
           disabled={isEdgeMonth}
           onClick={() => changeMonth(1)}

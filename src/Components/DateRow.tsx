@@ -50,7 +50,7 @@ function DateRow({
   }
 
   return (
-    <div className={styles.rowBlock}>
+    <div data-testid="dateRow" className={styles.rowBlock}>
       <button
         onClick={() => changeDate(-1)}
         className={stylesSeveral.arrowButton}
@@ -66,6 +66,7 @@ function DateRow({
         </div>
       </div>
       <button
+        data-testid="rightArrow"
         disabled={isEdgeMonth && currentDate.getDate() === activeDate.getDate()}
         onClick={() => changeDate(1)}
         className={stylesSeveral.arrowButton}
