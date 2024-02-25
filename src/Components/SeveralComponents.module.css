@@ -14,7 +14,6 @@
   margin-bottom: 1rem;
   padding: 0.8rem;
   text-align: center;
-  overflow: hidden;
   -webkit-transition: -webkit-transform 0.5s linear;
   transition: -webkit-transform 0.5s linear;
   -o-transition: transform 0.5s linear;

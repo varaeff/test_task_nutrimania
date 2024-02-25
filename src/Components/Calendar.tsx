@@ -46,22 +46,26 @@ function InnerCalendar({
     ? JSON.parse(localStorage.nutritionsLog)
     : {};
 
-  //формирование матрицы месяца
-  const outputMonth: (number | string)[][] = useMemo(() => {
-    const weekDays: string[] = ["пн", "вт", "ср", "чт", "пт", "сб", "вс"];
+  const returnDaysInMonth: number[] = useMemo(() => {
     const daysInMonth: number[] = [
       31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31,
     ];
-    const monthTable: (number | string)[][] = [];
-    const firstDay: number = new Date(year, month, 1).getDay();
-
-    let maxDays: number = daysInMonth[month];
     //корректировка для високосного года
     if (
       month === 1 &&
       ((year % 4 === 0 && year % 100 !== 0) || year % 400 === 0)
     )
-      maxDays += 1;
+      daysInMonth[month] += 1;
+    return daysInMonth;
+  }, [year]); // eslint-disable-line react-hooks/exhaustive-deps
+
+  //формирование матрицы месяца
+  const outputMonth: (number | string)[][] = useMemo(() => {
+    const weekDays: string[] = ["пн", "вт", "ср", "чт", "пт", "сб", "вс"];
+    const daysInMonth: number[] = returnDaysInMonth;
+    const monthTable: (number | string)[][] = [];
+    const firstDay: number = new Date(year, month, 1).getDay();
+    const maxDays: number = daysInMonth[month];
 
     monthTable[0] = weekDays;
 
@@ -78,7 +82,7 @@ function InnerCalendar({
       }
     }
     return monthTable;
-  }, [year, month]);
+  }, [year, month]); // eslint-disable-line react-hooks/exhaustive-deps
 
   function changeCurrentDay(day: number | string): void {
     if (typeof day === "number" && day !== -1) {
@@ -88,8 +92,17 @@ function InnerCalendar({
   }
 
   function changeMonth(n: number): void {
-    let newDate: number = calendarDate.setMonth(calendarDate.getMonth() + n);
+    const daysInMonth: number[] = returnDaysInMonth;
+    const workYear: number = calendarDate.getFullYear();
+    const workMonth: number = calendarDate.getMonth();
+    let workDate: number = calendarDate.getDate();
+
+    if (workDate > daysInMonth[workMonth + n])
+      workDate = daysInMonth[workMonth + n];
+
+    let newDate: number = new Date(workYear, workMonth + n, workDate).getTime();
     if (newDate > currentDate.getTime()) newDate = currentDate.getTime();
+
     setCalendarDate(new Date(newDate));
   }
 
