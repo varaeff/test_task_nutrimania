@@ -58,10 +58,11 @@ function DateRow({
         {leftArrow}
       </button>
       <div className={styles.dateBlock} onClick={callCalendar}>
-        <div className={styles.calendar}>{calendarPic}</div>
+        <div className={styles.calendar}>{calendarPic} &nbsp;</div>
         <div>
-          {activeDate.getDate()} {months[activeDate.getMonth()]}{" "}
-          {activeDate.getFullYear()}
+          {activeDate.getDate()}&nbsp;{months[activeDate.getMonth()]}&nbsp;
+          {currentDate.getFullYear() !== activeDate.getFullYear() &&
+            activeDate.getFullYear()}
         </div>
       </div>
       <button

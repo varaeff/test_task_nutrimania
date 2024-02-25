@@ -167,7 +167,8 @@ function InnerCalendar({
           {leftArrow}
         </button>
         {months[calendarDate.getMonth()]} &nbsp;
-        {calendarDate.getFullYear()}
+        {currentDate.getFullYear() !== calendarDate.getFullYear() &&
+          calendarDate.getFullYear()}
         <button
           className={stylesSeveral.arrowButton}
           disabled={isEdgeMonth}
